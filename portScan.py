@@ -4,7 +4,7 @@ from re import search
 
 def start_server():
     try:
-        print("\nWARNING: May not work on some machines and will be slow on mobile devices\n")
+        print("\nWARNING: Program may be slow on mobile / wireless devices\n")
         remote_server = input("Enter host to scan: ")
         # Validation
         if type(search("\d.\d.\d.\d", remote_server)) != None: # Is ip
@@ -27,6 +27,7 @@ def scan(ip):
         for port in range(1, 50000):
             print("Trying port " + str(port), end = "\r")
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.03)
             result = sock.connect_ex((ip, port))
             if result == 0:
                 print(" " * 100, end = "\r") # Clear line
