@@ -20,7 +20,7 @@ def start_server():
         print()
         return remote_server_ip
     except:
-        print("ERROR: Server not found")
+        print("ERROR: Host not found")
 
 def scan(ip):
     try:
